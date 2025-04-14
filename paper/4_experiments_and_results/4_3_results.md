@@ -43,7 +43,7 @@ LLM이 이러한 조정을 추천한 주요 근거는 다음과 같다:
 | LLM 튜닝 LSTM | 7.63 | 2.76 | 2.11 | 0.94 | 12.49 |
 | 성능 향상 | 65.46% ↑ | 41.23% ↑ | 39.33% ↑ | 14.89% ↑ | 43.47% ↑ |
 
-![AI 튜닝 LSTM 예측 비교](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/ai_tuned_lstm_forecast_comparision_plot_pm25.png)
+![AI 튜닝 LSTM 예측 비교](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/ai_tuned_lstm_forecast_comparision_plot_pm25.png)
 
 그림 4.4: 기본 LSTM과 LLM 튜닝 LSTM의 예측 결과 비교
 
@@ -55,7 +55,7 @@ LLM이 이러한 조정을 추천한 주요 근거는 다음과 같다:
 
 PM2.5 시계열 데이터에 대한 더 깊은 이해를 위해, 본 연구에서는 추가적인 시계열 특성 분석을 수행하였다. 이 분석은 예측 모델의 성능 차이와 성공 요인을 이해하는 데 중요한 맥락을 제공한다.
 
-![시계열 분해](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/timeseries_decomposition_plot_pm25.png)
+![시계열 분해](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/timeseries_decomposition_plot_pm25.png)
 
 그림 4.5: PM2.5 시계열 분해 (추세, 계절성, 잔차 성분)
 
@@ -69,19 +69,19 @@ PM2.5 시계열 데이터에 대한 더 깊은 이해를 위해, 본 연구에�
 
 이러한 복잡한 시계열 구조는 왜 단순한 통계 모델(Exponential Smoothing, ARIMA, Prophet)이 예측에 실패했고, 딥러닝 모델(LSTM, Transformer)이 우수한 성능을 보였는지 설명해준다. 딥러닝 모델은 비선형 패턴을 학습하고 장기 의존성을 포착하는 능력이 뛰어나기 때문에, 이러한 복잡한 시계열 데이터에 더 적합했던 것으로 판단된다.
 
-![자기상관 및 편자기상관 함수](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/acf_pacf_plot_pm25.png)
+![자기상관 및 편자기상관 함수](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/acf_pacf_plot_pm25.png)
 
 그림 4.6: PM2.5 시계열의 자기상관(ACF) 및 편자기상관(PACF) 함수
 
 그림 4.6은 PM2.5 시계열의 자기상관(ACF) 및 편자기상관(PACF) 함수를 보여준다. ACF 플롯에서 뚜렷한 24시간 주기성(lag 24, 48, 72 등에서의 피크)이 관찰되며, 이는 앞서 확인한 강한 일중 계절성을 다시 한번 확인해준다. PACF 플롯에서는 lag 1, 24에서 유의미한 상관관계가 관찰되며, 이는 ARIMA 모델에서 p=1, P=1, s=24와 같은 파라미터가 적절할 수 있음을 시사한다. 그러나 ARIMA 모델의 성능이 좋지 않았던 이유는, 이러한 선형적 자기상관 구조 외에도 비선형적인 패턴과 외부 변수의 영향이 크게 작용했기 때문으로 보인다.
 
-![상관관계 히트맵](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/timeseries_corelation_heatmap_plot.png)
+![상관관계 히트맵](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/timeseries_corelation_heatmap_plot.png)
 
 그림 4.7: 다양한 대기 오염 물질 간의 상관관계 히트맵
 
 그림 4.7은 PM2.5와 다른 대기 오염 물질(PM10, SO2, NO2, O3, CO) 간의 상관관계를 히트맵으로 시각화한 것이다. 분석 결과, PM2.5는 PM10과 가장 강한 상관관계(0.91)를 보였으며, CO(0.74)와 NO2(0.68)와도 상당한 상관관계가 있었다. 이러한 결과는 대기 오염 물질들 사이의 상호 연관성을 보여주며, 미래에는 이러한 다변량 정보를 활용한 예측 모델이 더 정확한 결과를 제공할 가능성을 시사한다.
 
-![그레인저 인과성 테스트](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/timeseries_granger_plot_pm10_to_pm25.png)
+![그레인저 인과성 테스트](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/timeseries_granger_plot_pm10_to_pm25.png)
 
 그림 4.8: PM10에서 PM2.5로의 그레인저 인과성 테스트 결과
 

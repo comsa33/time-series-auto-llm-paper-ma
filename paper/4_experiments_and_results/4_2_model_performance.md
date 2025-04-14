@@ -10,7 +10,7 @@
 | LSTM | 18.38 | 4.29 | 3.22 | 0.84 | 19.63 |
 | Transformer | 10.50 | 3.24 | 2.24 | 0.91 | 14.21 |
 
-![모델별 성능 비교 시각화](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/model_performance_comparison_plots_pm25.png)
+![모델별 성능 비교 시각화](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/model_performance_comparison_plots_pm25.png)
 
 그림 4.1: 다섯 가지 모델의 예측 성능 비교 시각화
 
@@ -18,7 +18,7 @@
 
 LSTM 모델도 RMSE 4.29, MAPE 19.63%, R² 0.84로 우수한 성능을 보여주었다. 반면에 Exponential Smoothing과 Prophet 모델은 예측이 거의 실패한 수준으로, MAPE가 각각 432.92%와 209.44%에 달하며 R²이 큰 음수를 기록했다. 이는 해당 모델들이 평균으로 예측하는 것보다도 못한 성능을 보였음을 뜻한다. ARIMA 모델의 경우 MAPE 약 103.21%로, 예측값이 평균적으로 실제값의 2배 정도 오차를 보이는 수준이며 R²도 -0.54로 0 이하이다.
 
-![모델별 예측 결과 비교](/home/ruo/my_project/time-series-auto-llm-paper-ma/research_results/analysis_plots/model_forecast_comparision_plot_pm25.png)
+![모델별 예측 결과 비교](https://github.com/comsa33/time-series-auto-llm-paper-ma/blob/1148baa89a09ae8e7d77a124831a93c50cbe835c/research_results/analysis_plots/model_forecast_comparision_plot_pm25.png)
 
 그림 4.2: 각 모델의 예측 결과와 실제 PM2.5 농도 비교
 
