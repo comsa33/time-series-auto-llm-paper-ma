@@ -1,0 +1,130 @@
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+% 한국어 지원
+\usepackage{kotex}
+
+% 폰트 설정
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$endif$
+
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+
+% 여백 설정
+\usepackage[
+$for(geometry)$
+  $geometry$$sep$,
+$endfor$
+]{geometry}
+
+% 색상 설정
+\usepackage{xcolor}
+$if(colorlinks)$
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+  citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$
+}
+$endif$
+
+% 이미지 지원
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{grffile}
+
+% 표 지원
+\usepackage{longtable,booktabs,tabularx,colortbl}
+\usepackage{multirow}
+
+% 코드 블록 지원
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+% 제목 스타일
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+% 헤더/푸터
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+% 표지
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\Huge\textbf{$title$}}\\
+
+\vspace{1.5cm}
+
+{\LARGE 석사학위 논문}\\
+
+\vspace{2cm}
+
+$if(author)$
+{\large 이름: $author$}\\
+$endif$
+
+\vspace{3cm}
+
+{\large \today}\\
+
+\vspace{2cm}
+
+{\large aSSIST(서울과학종합대학원)}\\
+\end{center}
+\end{titlepage}
+
+% 초록
+\chapter*{초록}
+\addcontentsline{toc}{chapter}{초록}
+
+$abstract$
+
+% 목차
+\newpage
+\tableofcontents
+\newpage
+
+% 그림 목차
+\listoffigures
+\newpage
+
+% 표 목차
+\listoftables
+\newpage
+
+% 본문 시작
+$body$
+
+\end{document}
